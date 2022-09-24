@@ -106,9 +106,9 @@ on property:sys.umg.cpu.perf=1
     write /sys/devices/system/cpu/cpufreq/policy4/schedutil/hispeed_load 98
     write /sys/devices/system/cpu/cpufreq/policy7/schedutil/hispeed_freq 2169600
     write /sys/devices/system/cpu/cpufreq/policy7/schedutil/hispeed_load 98
-    write /sys/devices/system/cpu/cpu_boost/input_boost_ms 100
+    write /sys/devices/system/cpu/cpu_boost/input_boost_ms 0
     write /sys/devices/system/cpu/cpu_boost/input_boost_freq "0:1075200 1:1075200"
-    write /sys/class/thermal/thermal_message/sconfig 0
+    write /sys/class/thermal/thermal_message/sconfig 8
     write /sys/module/lpm_levels/parameters/sleep_disabled "N"
     write /proc/sys/kernel/sched_boost 0
 

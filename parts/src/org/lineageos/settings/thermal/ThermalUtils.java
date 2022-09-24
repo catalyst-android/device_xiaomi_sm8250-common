@@ -36,6 +36,7 @@ public final class ThermalUtils {
     protected static final int STATE_GAMING = 5;
     protected static final int STATE_STREAMING = 6;
     private static final String THERMAL_CONTROL = "thermal_control";
+    private static final String THERMAL_STATE_DEFAULT_BATTERY = "8";
     private static final String THERMAL_STATE_DEFAULT_REAL = "0";
     private static final String THERMAL_STATE_DEFAULT = "9";
     private static final String THERMAL_STATE_BENCHMARK = "10";
@@ -143,14 +144,14 @@ public final class ThermalUtils {
 
     protected void setDefaultThermalProfile() {
         final int performanceProfile = SystemProperties.getInt("sys.umg.cpu.perf", 3);
-        FileUtils.writeLine(THERMAL_SCONFIG, performanceProfile < 3 ? THERMAL_STATE_DEFAULT_REAL : THERMAL_STATE_DEFAULT);
+        FileUtils.writeLine(THERMAL_SCONFIG, performanceProfile < 3 ? (performanceProfile < 2 ? THERMAL_STATE_DEFAULT_BATTERY : THERMAL_STATE_DEFAULT_REAL) : THERMAL_STATE_DEFAULT);
     }
 
     protected void setThermalProfile(String packageName) {
         String value = getValue();
         String modes[];
         final int performanceProfile = SystemProperties.getInt("sys.umg.cpu.perf", 3);
-        String state = performanceProfile < 3 ? THERMAL_STATE_DEFAULT_REAL : THERMAL_STATE_DEFAULT;
+        String state = performanceProfile < 3 ? (performanceProfile < 2 ? THERMAL_STATE_DEFAULT_BATTERY : THERMAL_STATE_DEFAULT_REAL) : THERMAL_STATE_DEFAULT;
 
         if (value != null) {
             modes = value.split(":");
