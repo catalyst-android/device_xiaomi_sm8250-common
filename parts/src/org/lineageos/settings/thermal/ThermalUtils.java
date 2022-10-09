@@ -36,7 +36,7 @@ public final class ThermalUtils {
     protected static final int STATE_GAMING = 5;
     protected static final int STATE_STREAMING = 6;
     private static final String THERMAL_CONTROL = "thermal_control";
-    private static final String THERMAL_STATE_DEFAULT_BATTERY = "8";
+    private static final String THERMAL_STATE_DEFAULT_BATTERY = "0";
     private static final String THERMAL_STATE_DEFAULT_REAL = "0";
     private static final String THERMAL_STATE_DEFAULT = "9";
     private static final String THERMAL_STATE_BENCHMARK = "10";
